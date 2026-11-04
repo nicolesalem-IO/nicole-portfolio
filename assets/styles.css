@@ -262,3 +262,22 @@ h1, h2, h3, h4, h5 { font-family: var(--font-heading); letter-spacing: -0.015em;
 .callout p:last-child { font-size: 1.05rem; line-height: 1.6; }
 section > div > p + p { margin-top: 1rem; }
 .data-table { min-width: 34rem; }
+/* Charts and screenshots */
+.chart { width: 100%; height: auto; display: block; font-family: var(--font-body); }
+.chart-fig { border: 1px solid hsl(var(--foreground) / .15); background: hsl(var(--background)); padding: 1rem 1rem 0.75rem; }
+.chart .grid { stroke: hsl(var(--foreground) / .1); stroke-width: 1; }
+.chart .tick { font-size: 11px; fill: hsl(var(--foreground) / .6); }
+.chart .lbl { font-size: 13px; fill: hsl(var(--foreground) / .85); }
+.chart .val { font-size: 13px; font-weight: 600; fill: hsl(var(--foreground)); }
+.chart .note { font-size: 13px; font-style: italic; fill: hsl(var(--foreground) / .6); }
+.chart .bar { fill: hsl(var(--primary)); }
+.chart .bar-weak { fill: #a8761e; }
+.chart .band { fill: hsl(var(--primary) / .22); }
+.chart .dot { fill: hsl(var(--primary)); stroke: hsl(var(--background)); stroke-width: 2; }
+.chart .cutoff { stroke: #9b3d33; stroke-width: 2; stroke-dasharray: 5 4; }
+.chart .cut-lbl { font-size: 12px; font-weight: 600; fill: #9b3d33; }
+.chart .hit:hover .bar, .chart .hit:hover .dot { opacity: .8; }
+.chart-fig .fig-caption { margin-top: 0.5rem; }
+.shots { display: flex; flex-wrap: wrap; gap: 1rem; }
+.shots img { width: 15rem; max-width: 100%; height: auto; border: 1px solid hsl(var(--foreground) / .18); border-radius: 18px; box-shadow: 0 14px 30px -20px rgba(18, 32, 46, .45); }
+.fig + p { margin-top: 1.75rem; }
