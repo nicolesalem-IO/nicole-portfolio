@@ -143,6 +143,8 @@ def main():
     os.makedirs(OUT)
     for asset in ("styles.css", "site.js", "favicon.svg"):
         shutil.copy(os.path.join(ROOT, "assets", asset), OUT)
+    if os.path.isdir(os.path.join(ROOT, "media")):
+        shutil.copytree(os.path.join(ROOT, "media"), os.path.join(OUT, "media"))
 
     write("index.html", page("/", "Nicole Salem · Operations & People Leadership",
                              "Portfolio of Nicole Salem: Operations & People Leadership · Industrial-Organizational Psychology.",
