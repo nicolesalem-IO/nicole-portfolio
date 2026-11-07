@@ -7,7 +7,7 @@ import html
 import os
 import shutil
 
-from content import CATEGORIES, HEADSHOT, LINKEDIN, PROJECTS, RESUME
+from content import ABOUT_IMG, CATEGORIES, HEADSHOT, LINKEDIN, PROJECTS, RESUME
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "public")
@@ -28,7 +28,7 @@ def nav_link(href, label, active, mobile=False):
     cur = ' aria-current="page"' if active else ""
     if mobile:
         return f'<a class="text-lg{" text-primary" if active else ""}" href="{href}"{cur}>{label}</a>'
-    cls = "text-base transition-colors hover:text-primary " + ("text-primary" if active else "text-foreground/80")
+    cls = "text-[0.78rem] font-semibold uppercase tracking-[0.16em] transition-colors hover:text-primary " + ("text-primary" if active else "text-foreground/70")
     return f'<a class="{cls}" href="{href}"{cur}>{label}</a>'
 
 
@@ -51,16 +51,16 @@ def page(path, title, description, main, section):
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&amp;family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap">
 <link rel="stylesheet" href="/styles.css">
 <script src="/site.js" defer></script>
 </head>
 <body>
-<div class="flex min-h-screen flex-col border-t-4 border-primary">
+<div class="flex min-h-screen flex-col border-t-[6px] border-[#facc15]">
 <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-background focus:p-3">Skip to content</a>
 <header class="sticky top-0 z-30 border-b border-foreground/15 bg-background/90 backdrop-blur">
 <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-<a class="group flex items-center gap-3" href="/"><span class="h-2.5 w-2.5 bg-primary transition-transform duration-300 group-hover:rotate-45" aria-hidden="true"></span><span class="font-heading text-xl font-semibold tracking-tight">Nicole Salem</span></a>
+<a class="group flex items-center gap-3" href="/"><span class="h-3 w-3 rounded-[4px] bg-[#ec4899] transition-transform duration-300 group-hover:rotate-45" aria-hidden="true"></span><span class="font-heading text-xl font-semibold tracking-tight">Nicole Salem</span></a>
 <nav aria-label="Main" class="hidden items-center gap-9 md:flex">{desktop}</nav>
 <button type="button" id="menu-toggle" class="-mr-2 rounded-sm p-2 transition-colors hover:bg-secondary md:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">{MENU}{CLOSE}</button>
 </div>
@@ -94,8 +94,8 @@ def card(p):
 
 def home():
     featured = "".join(card(p) for p in PROJECTS[:3])
-    return f"""<section class="relative overflow-hidden border-b border-foreground/15"><div class="mx-auto grid max-w-6xl items-center gap-12 px-6 py-14 md:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16"><div class="drift-in"><p class="eyebrow">Industrial-Organizational Psychology</p><h1 class="mt-6 text-5xl leading-[0.95] tracking-[-0.02em] sm:text-6xl md:text-7xl lg:text-[5.25rem]">Nicole <span class="accent-underline">Salem</span></h1><p class="mt-7 max-w-2xl text-xl leading-relaxed text-foreground/85 md:text-2xl">For years, my work has been leading teams and finding ways to make work run better. Now, as a master’s student in Industrial-Organizational Psychology, I’m bringing research to the questions every leader eventually faces.</p><p class="mt-4 max-w-2xl text-lg text-foreground/70">How do we train people for the work they actually do? How do we make hiring decisions more consistent? How do we tell whether a change is helping?</p><div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4"><a class="btn btn-solid" href="/projects">Explore my projects {ARROW}</a><a href="{LINKEDIN}" target="_blank" rel="noopener noreferrer" class="ulink font-medium">Connect on LinkedIn</a></div></div><div class="relative mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none"><div class="absolute inset-0 translate-x-3 translate-y-3 border border-primary/45" aria-hidden="true"></div><img src="{HEADSHOT}" alt="Nicole Salem" class="relative aspect-[4/5] w-full border border-foreground/20 object-cover"></div></div></section>
-<section aria-labelledby="featured" class="border-b border-foreground/15 bg-secondary/60"><div class="mx-auto max-w-6xl px-6 py-14 md:py-20"><div class="flex flex-wrap items-end justify-between gap-6"><div><p class="eyebrow">Selected work</p><h2 id="featured" class="mt-4 text-4xl md:text-5xl">Featured projects</h2></div><a class="link-arrow ulink inline-flex items-center gap-2 font-medium text-primary" href="/projects">Browse all projects {ARROW}</a></div><div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">{featured}</div></div></section>"""
+    return f"""<div class="pb-14"><section class="mx-auto max-w-[92rem] px-5 md:px-8"><h1 class="drift-in mt-6 text-[18vw] font-extrabold uppercase leading-[0.8] tracking-[-0.045em] sm:mt-10 sm:text-[11vw]">Nicole<br class="sm:hidden"><span class="hidden sm:inline"> </span>Salem</h1><div class="mt-8 grid items-start gap-8 border-t border-foreground/25 pt-8 sm:mt-12 sm:gap-10 md:grid-cols-[1.1fr_1fr] md:pt-12 lg:gap-16"><img alt="Nicole Salem" class="aspect-[2/3] w-full object-cover" src="{HEADSHOT}"><div><p class="text-xs font-bold uppercase leading-[1.9] tracking-[0.24em] sm:text-sm">Operations &amp; People Leadership<br>Industrial-Organizational Psychology</p><p class="mt-6 text-lg leading-relaxed text-foreground/85 sm:mt-8 sm:text-xl">For years, my work has been leading teams and finding ways to make work run better. Now, as a master’s student in Industrial-Organizational Psychology, I’m bringing research to the questions every leader eventually faces.</p><p class="mt-4 text-base leading-relaxed text-foreground/65">How do we train people for the work they actually do? How do we make hiring decisions more consistent? How do we tell whether a change is helping?</p><div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4 border-t border-foreground/15 pt-6"><a class="btn btn-solid" href="/projects">Explore my projects {ARROW}</a><a href="{LINKEDIN}" target="_blank" rel="noopener noreferrer" class="ulink font-semibold">Connect on LinkedIn</a></div></div></div></section>
+<section aria-labelledby="featured" class="mx-auto mt-14 max-w-[92rem] border-t border-foreground/25 px-5 py-10 md:mt-20 md:px-8 md:py-14"><div class="flex flex-wrap items-end justify-between gap-4"><h2 id="featured" class="text-3xl font-extrabold uppercase tracking-[-0.035em] sm:text-5xl">Selected work</h2><a class="link-arrow inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.16em]" href="/projects">All projects {ARROW}</a></div><div class="mt-8 grid gap-5 sm:mt-10 md:grid-cols-2 lg:grid-cols-3">{featured}</div></section></div>"""
 
 
 def projects():
@@ -109,14 +109,14 @@ def projects():
 
 
 def about():
-    return f"""<div class="mx-auto max-w-6xl px-6 pb-20 pt-14 md:pt-20"><p class="eyebrow drift-in">About</p><h1 class="drift-in mt-5 text-5xl leading-[0.98] md:text-7xl">Hello, I’m <span class="accent-underline">Nicole</span></h1><div class="mt-10 grid items-start gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16"><div class="max-w-2xl"><p class="text-xl leading-relaxed text-foreground/90 md:text-2xl">Finance, operations, and people leadership make up my background: leading teams, building training, and working through the day-to-day challenges of a growing business.</p><p class="mt-5 text-lg leading-relaxed text-foreground/80">At Marian University, a master’s in Industrial-Organizational Psychology is giving that experience a research foundation through work in training, assessment, and applied research. Next, I want to bring both into people operations and organizational development in healthcare or education.</p><div class="mt-10 flex flex-wrap gap-4"><a href="{RESUME}" target="_blank" rel="noopener noreferrer" class="btn btn-solid">View résumé {ARROW}</a><a href="{LINKEDIN}" target="_blank" rel="noopener noreferrer" class="btn btn-line">Connect on LinkedIn</a></div></div><div class="relative mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none"><div class="absolute inset-0 -translate-x-3 translate-y-3 border border-primary/45" aria-hidden="true"></div><img alt="Nicole Salem" class="relative aspect-[4/5] w-full border border-foreground/20 object-cover" src="{HEADSHOT}"></div></div></div>"""
+    return f"""<div class="mx-auto max-w-6xl px-6 pb-20 pt-14 md:pt-20"><p class="eyebrow drift-in">About</p><h1 class="drift-in mt-5 text-5xl leading-[0.98] md:text-7xl">Hello, I’m <span class="accent-underline">Nicole</span></h1><div class="mt-10 grid items-start gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16"><div class="max-w-2xl"><p class="text-xl leading-relaxed text-foreground/90 md:text-2xl">Finance, operations, and people leadership make up my background: leading teams, building training, and working through the day-to-day challenges of a growing business.</p><p class="mt-5 text-lg leading-relaxed text-foreground/80">At Marian University, a master’s in Industrial-Organizational Psychology is giving that experience a research foundation through work in training, assessment, and applied research. Next, I want to bring both into people operations and organizational development in healthcare or education.</p><div class="mt-10 flex flex-wrap gap-4"><a href="{RESUME}" target="_blank" rel="noopener noreferrer" class="btn btn-solid">View résumé {ARROW}</a><a href="{LINKEDIN}" target="_blank" rel="noopener noreferrer" class="btn btn-line">Connect on LinkedIn</a></div></div><div class="relative mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none"><div class="brand-gradient absolute -inset-3 rotate-3 rounded-[2rem]" aria-hidden="true"></div><img alt="Nicole Salem" class="relative aspect-[1199/1312] w-full rounded-[2rem] object-cover" src="{ABOUT_IMG}"></div></div></div>"""
 
 
 def detail(p):
     extra = f'<div class="mt-8">{p["header_extra"]}</div>' if p.get("header_extra") else ""
     sections = "".join(
         f'<section class="border-t border-foreground/15 py-10 md:py-12"><div class="flex items-center gap-3">'
-        f'<span class="h-2 w-2 shrink-0 bg-primary" aria-hidden="true"></span><h2 class="text-2xl md:text-3xl">{e(t)}</h2></div>'
+        f'<span class="h-3 w-3 shrink-0 rounded-full bg-[#facc15]" aria-hidden="true"></span><h2 class="text-2xl md:text-3xl">{e(t)}</h2></div>'
         f'<div class="mt-5 text-lg leading-relaxed text-foreground/90">{body}</div></section>'
         for t, body in p["sections"])
     return (f'<article class="mx-auto max-w-3xl px-6 pb-20"><a class="mt-8 inline-flex items-center gap-2 text-sm font-medium text-foreground/70 transition-colors hover:text-primary" href="/projects">{BACK} Back to projects</a>'

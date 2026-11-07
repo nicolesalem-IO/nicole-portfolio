@@ -1,6 +1,7 @@
 from html import escape as e
 
-HEADSHOT = "https://base44.app/api/apps/6aeb6d24517ad9a537d05c86/files/mp/public/6aeb6d24517ad9a537d05c86/d1e1e3d7c_headshot.jpeg"
+HEADSHOT = "https://base44.app/api/apps/6aeb6d24517ad9a537d05c86/files/mp/public/6aeb6d24517ad9a537d05c86/213c2d490_full.png"
+ABOUT_IMG = "https://base44.app/api/apps/6aeb6d24517ad9a537d05c86/files/mp/public/6aeb6d24517ad9a537d05c86/e257967b3_head.png"
 RESUME = "https://base44.app/api/apps/6aeb6d24517ad9a537d05c86/files/mp/public/6aeb6d24517ad9a537d05c86/b25e5299c_Nicole-Salem-Resume.pdf"
 LINKEDIN = "https://www.linkedin.com/in/nicole-salem-hr/"
 MEDIA = "https://media.base44.com/files/public/user_6aeb68b39348f0600718113a/"
