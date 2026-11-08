@@ -5,9 +5,11 @@ ABOUT_IMG = "https://base44.app/api/apps/6aeb6d24517ad9a537d05c86/files/mp/publi
 RESUME = "https://base44.app/api/apps/6aeb6d24517ad9a537d05c86/files/mp/public/6aeb6d24517ad9a537d05c86/b25e5299c_Nicole-Salem-Resume.pdf"
 LINKEDIN = "https://www.linkedin.com/in/nicole-salem-hr/"
 MEDIA = "https://media.base44.com/files/public/user_6aeb68b39348f0600718113a/"
+OYP_BRAND = "https://base44.app/api/apps/6aeb6d24517ad9a537d05c86/files/mp/public/6aeb6d24517ad9a537d05c86/32a64f618_own-your-presence-brand.png"
 
 CATEGORIES = [
     "Training & Development",
+    "Data & Analytics",
     "Selection & Assessment",
     "Performance Management",
     "Leadership & Organizational Development",
@@ -146,6 +148,7 @@ def p(text):
 PROJECTS = [
     {
         "slug": "supervisor-coaching-healthcare-clinic",
+        "reports": ["supervisor-coaching-healthcare-clinic-1"],
         "category": "Training & Development",
         "eyebrow": "Graduate training design and evaluation plan",
         "title": "Designing Supervisor Coaching for a Healthcare Clinic",
@@ -171,12 +174,12 @@ PROJECTS = [
                  ("Set next steps", "Agree on actions and a follow-up date."),
                  ("Follow up", "Document the talk, monitor progress, review improvement."),
              ], "The seven-step corrective feedback job aid supervisors take back to the floor (Appendix C).")),
-            ("Work sample", pdfs(pdf("abd1e38d7_TrainingEvaluationPlan_FinalCoursePlan95621AM.pdf", "View full PDF"))),
             ("Recommendation or status", p("Evaluation centers on one question: are supervisors using the feedback process consistently, and is it reducing documentation-related issues? Managers hold weekly check-ins during the first month, and documentation trends get reviewed 60 to 90 days after launch.")),
         ],
     },
     {
         "slug": "hiring-system-implementation-consultants",
+        "reports": ["hiring-system-implementation-consultants-1"],
         "category": "Selection & Assessment",
         "eyebrow": "Graduate assessment memo",
         "title": "Evaluating a Hiring System for Healthcare Implementation Consultants",
@@ -214,7 +217,7 @@ PROJECTS = [
                  ("Moderate", ["“Digital natives” recruiting language", "Automatic screening on employment gaps", "Unstructured interviews"]),
                  ("Low", ["Standardized rejection emails"]),
              ], "Risk prioritization from the Meridian hiring risk memo, weighing severity, likelihood of challenge, and how well each practice is documented.")
-             + pdfs(pdf("9aecb3a21_LegalEthicalRiskAssessmentMemo120717PM.pdf", "Download Meridian hiring risk memo (PDF)"))),
+),
             ("Recommendation or status", p("Approve the system on the condition of targeted revisions: strengthen the structured interview first, expand internal validation, build measurement error into score interpretation, and document the rationale behind every step.")),
         ],
     },
@@ -247,6 +250,7 @@ PROJECTS = [
     },
     {
         "slug": "overtime-performance-ratings",
+        "reports": ["overtime-performance-ratings-1"],
         "category": "Performance Management",
         "eyebrow": "Graduate case analysis",
         "title": "When Overtime Shapes Performance Ratings",
@@ -262,13 +266,13 @@ PROJECTS = [
              ], "Rater biases identified in the case analysis.")),
             ("Work sample",
              '<div class="space-y-4"><p>One manager practice exercise puts two scenarios side by side: an employee who completes skilled work during scheduled hours, and one who stays late but often needs corrections. Managers rate both against shared standards and explain the evidence behind each rating. In calibration meetings, HR then asks managers to back up every rating with specific examples from the review period.</p></div>'
-             '<p class="mt-4 text-sm text-foreground/75">Adapted from the manager practice and calibration recommendations on page 5 of the Tech Solutions case analysis.</p>'
-             + pdfs(pdf("62fcf5a0c_RaterBiasandPerformanceEvaluationatTechSolutionsInc11.pdf", "View full PDF"))),
+             '<p class="mt-4 text-sm text-foreground/75">Adapted from the manager practice and calibration recommendations on page 5 of the Tech Solutions case analysis.</p>'),
             ("Recommendation or status", p("A follow-up audit would test whether ratings still track overtime among employees with similar responsibilities and core performance.")),
         ],
     },
     {
         "slug": "diagnosing-motivation-workplace-change",
+        "reports": ["diagnosing-motivation-workplace-change-1", "diagnosing-motivation-workplace-change-2"],
         "category": "Leadership & Organizational Development",
         "eyebrow": "Graduate case analyses",
         "title": "Diagnosing Motivation During Workplace Change",
@@ -289,9 +293,6 @@ PROJECTS = [
                  ["Priority clarity, leadership explanation, feedback usefulness", "Perceptual", "Whether communication and coaching feel clear and useful"],
                  ["Fairness, voice, development access", "Pulse survey", "Whether opportunity processes and input channels feel fair"],
              ], "Leadership effectiveness measures from the Northside consulting brief.")),
-            ("Work sample", pdfs(
-                pdf("7030437b8_MotivationDiagnosisMatrix.pdf", "Download Riverview diagnosis matrix (PDF)"),
-                pdf("762b78eae_AppliedLeadershipandMotivationConsultingBrief.pdf", "Download Northside consulting brief (PDF)"))),
         ],
     },
     {
@@ -306,6 +307,7 @@ PROJECTS = [
     },
     {
         "slug": "pay-for-performance-skill-development",
+        "reports": ["pay-for-performance-skill-development-1", "pay-for-performance-skill-development-2"],
         "category": "Compensation & Global Mobility",
         "eyebrow": "Graduate compensation proposal",
         "title": "Designing Pay for Performance and Skill Development",
@@ -321,9 +323,6 @@ PROJECTS = [
              ], "Proposed pay mix by role for Mountain West Community Credit Union.")
              + callout("Guardrail", "Quality and compliance act as a threshold for any incentive. High production can’t offset a serious failure in compliance or member protection.")),
             ("Recommendation or status", p("Pilot the design with a few job groups before expanding it across the credit union.")),
-            ("Work sample", pdfs(
-                pdf("4335191ae_ProposalforImplementingPerformance-BasedandCompetency-BasedPaySystems.pdf", "View full PDF"),
-                pdf("1f216510e_AnalysisofManagerialandExecutiveCompensationStrategies_RecommendationsforMountainWest.pdf", "Download managerial and executive compensation analysis (PDF)"))),
         ],
     },
     {
@@ -338,6 +337,7 @@ PROJECTS = [
     },
     {
         "slug": "own-your-presence",
+        "card_image": OYP_BRAND,
         "category": "Apps & Workflow Design",
         "eyebrow": "Independent app",
         "title": "Own Your Presence",
@@ -348,6 +348,19 @@ PROJECTS = [
              + shots([("oyp-welcome.webp", "Own Your Presence welcome screen: You don’t have to become someone else to be taken seriously"),
                       ("oyp-onboarding.webp", "Onboarding step 1 of 7: What kind of change are you navigating?")],
                      "The welcome screen and the first onboarding step.")),
+            ("Work sample",
+             f'<figure class="mb-6"><img alt="Brand imagery from the Own Your Presence brand book: Obsidian Black, Sunburst Yellow and Raspberry Pink." class="w-full rounded-md border border-foreground/20" src="{OYP_BRAND}" loading="lazy"></figure>'
+             '<p class="mt-4 text-sm text-foreground/75">Brand imagery from the Own Your Presence brand book: Obsidian Black, Sunburst Yellow and Raspberry Pink.</p>'),
         ],
+    },
+    {
+        "slug": "concussion-tracking-thesis",
+        "category": "Applied Research",
+        "categories": ["Applied Research", "Data & Analytics"],
+        "eyebrow": "Thesis proposal",
+        "title": "Digital and Paper-Based Concussion Tracking",
+        "summary": "My master’s thesis proposal: a critical evidence review and conceptual model of how tracking systems relate to adherence and self-regulatory awareness during concussion recovery.",
+        "reports": ["concussion-tracking-thesis-1"],
+        "sections": [],
     },
 ]

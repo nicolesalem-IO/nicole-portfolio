@@ -24,7 +24,7 @@
       var shown = 0;
       buttons.forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
       cards.forEach(function (c) {
-        var match = filter === "all" || c.getAttribute("data-category") === filter;
+        var match = filter === "all" || c.getAttribute("data-category").split("|").indexOf(filter) !== -1;
         c.style.display = match ? "" : "none";
         if (match) shown++;
       });

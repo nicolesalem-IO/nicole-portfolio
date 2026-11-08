@@ -5,6 +5,7 @@ Static portfolio site, hosted on Netlify. Every push to `main` redeploys automat
 ## Editing
 
 - **Project text:** `build/content.py`
+- **Full reports shown on project pages:** `build/reports/*.html`
 - **Page layout and Home/About text:** `build/build.py`
 - **Styles:** `assets/styles.css`
 - **Menu and project filters:** `assets/site.js`

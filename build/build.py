@@ -11,7 +11,8 @@ from content import ABOUT_IMG, CATEGORIES, HEADSHOT, LINKEDIN, PROJECTS, RESUME
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "public")
-SITE_URL = "https://nicole-salem.netlify.app"
+SITE_URL = "https://nicolesalem.com"
+REPORTS = os.path.join(ROOT, "build", "reports")
 
 SVG = ('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" '
        'stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ')
@@ -83,7 +84,9 @@ def page(path, title, description, main, section):
 
 def card(p):
     url = f"/projects/{p['slug']}"
-    return (f'<article class="card-tint flex h-full flex-col border border-foreground/20 bg-background p-6">'
+    img = (f'<img alt="" class="mb-5 h-44 w-full border border-foreground/10 object-cover" src="{p["card_image"]}" loading="lazy">'
+           if p.get("card_image") else "")
+    return (f'<article class="card-tint flex h-full flex-col border border-foreground/20 bg-background p-6">{img}'
             f'<p class="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-primary">{e(p["category"])}</p>'
             f'<p class="mt-1.5 text-sm text-foreground/65">{e(p["eyebrow"])}</p>'
             f'<h3 class="mt-3 text-2xl leading-snug"><a class="transition-colors hover:text-primary" href="{url}">{e(p["title"])}</a></h3>'
@@ -103,7 +106,7 @@ def projects():
     buttons = f'<button type="button" aria-pressed="true" data-filter="all" class="{btn}">All projects</button>' + "".join(
         f'<button type="button" aria-pressed="false" data-filter="{e(c)}" class="{btn}">{e(c)}</button>' for c in CATEGORIES)
     cards = "".join(
-        f'<div class="drift-in" data-category="{e(p["category"])}" style="animation-delay: {i * 60}ms;">{card(p)}</div>'
+        f'<div class="drift-in" data-category="{e("|".join(p.get("categories", [p["category"]])))}" style="animation-delay: {i * 60}ms;">{card(p)}</div>'
         for i, p in enumerate(PROJECTS))
     return f"""<div><header class="mx-auto max-w-6xl px-6 pt-14 pb-10 md:pt-20 md:pb-14"><p class="eyebrow drift-in">Selected work</p><h1 class="drift-in mt-5 text-5xl leading-[0.98] md:text-6xl lg:text-7xl">Projects</h1><p class="drift-in mt-6 max-w-3xl text-xl leading-relaxed text-foreground/85 md:text-2xl">A collection of my graduate work, independent apps, and applied projects across training, assessment, organizational development, and research.</p></header><div class="sticky top-[4.5rem] z-20 border-y border-foreground/15 bg-background/95 backdrop-blur"><div class="mx-auto max-w-6xl px-6 py-4"><div role="group" aria-label="Filter projects by skill" id="project-filters" class="flex flex-wrap gap-2">{buttons}</div></div></div><div class="mx-auto max-w-6xl px-6"><p class="pt-8 text-sm font-medium uppercase tracking-[0.16em] text-foreground/60" id="project-count">{len(PROJECTS)} projects</p><div class="grid gap-6 pb-20 pt-6 md:grid-cols-2 lg:grid-cols-3" aria-live="polite" id="project-grid">{cards}</div></div></div>"""
 
@@ -114,15 +117,28 @@ def about():
 
 def detail(p):
     extra = f'<div class="mt-8">{p["header_extra"]}</div>' if p.get("header_extra") else ""
+    def report(name):
+        with open(os.path.join(REPORTS, name + ".html"), encoding="utf-8") as f:
+            return f.read()
+
+    sections_list = list(p["sections"])
     sections = "".join(
         f'<section class="border-t border-foreground/15 py-10 md:py-12"><div class="flex items-center gap-3">'
         f'<span class="h-3 w-3 shrink-0 rounded-full bg-[#facc15]" aria-hidden="true"></span><h2 class="text-2xl md:text-3xl">{e(t)}</h2></div>'
         f'<div class="mt-5 text-lg leading-relaxed text-foreground/90">{body}</div></section>'
-        for t, body in p["sections"])
+        for t, body in sections_list if t != "Recommendation or status")
+    sections += "".join(report(r) for r in p.get("reports", []))
+    sections += "".join(
+        f'<section class="border-t border-foreground/15 py-10 md:py-12"><div class="flex items-center gap-3">'
+        f'<span class="h-3 w-3 shrink-0 rounded-full bg-[#facc15]" aria-hidden="true"></span><h2 class="text-2xl md:text-3xl">{e(t)}</h2></div>'
+        f'<div class="mt-5 text-lg leading-relaxed text-foreground/90">{body}</div></section>'
+        for t, body in sections_list if t == "Recommendation or status")
     return (f'<article class="mx-auto max-w-3xl px-6 pb-20"><a class="mt-8 inline-flex items-center gap-2 text-sm font-medium text-foreground/70 transition-colors hover:text-primary" href="/projects">{BACK} Back to projects</a>'
             f'<header class="drift-in border-b border-foreground/15 py-10 md:py-14"><p class="eyebrow">{e(p["eyebrow"])}</p>'
             f'<h1 class="mt-5 text-4xl leading-[1.05] md:text-6xl">{e(p["title"])}</h1>'
-            f'<ul class="mt-6 flex flex-wrap gap-2" aria-label="Skills"><li class="border border-primary/35 bg-primary/5 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-primary">{e(p["category"])}</li></ul>'
+            f'<ul class="mt-6 flex flex-wrap gap-2" aria-label="Skills">'
+            + "".join(f'<li class="border border-primary/35 bg-primary/5 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-primary">{e(c)}</li>' for c in p.get("categories", [p["category"]]))
+            + '</ul>'
             f'<p class="mt-6 text-xl leading-relaxed text-foreground/90 md:text-2xl">{e(p["summary"])}</p>{extra}</header>{sections}</article>')
 
 
