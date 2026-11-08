@@ -174,7 +174,8 @@ h1, h2, h3, h4, h5 { font-family: var(--font-heading); letter-spacing: -0.035em;
 .ulink:hover { text-decoration-thickness: 1px; }
 .card-tint { border-radius: 1.5rem; transition: background-color 0.25s, transform 0.25s, box-shadow 0.25s; position: relative; overflow: hidden; }
 .card-tint::before { content: ""; transform-origin: 0 center; background: linear-gradient(90deg, var(--yellow), var(--pink)); height: 5px; transition: transform 0.35s; position: absolute; top: 0; left: 0; right: 0; transform: scaleX(0); }
-.card-tint:hover { background-color: rgb(253, 242, 248); transform: translateY(-3px); box-shadow: rgba(236, 72, 153, 0.6) 0px 18px 38px -22px; }
+.card-tint.card-tint { border: 2px solid transparent; }
+.card-tint.card-tint:hover { border-color: rgb(18, 16, 22); transform: translate(-3px, -3px); box-shadow: rgb(250, 204, 21) 6px 6px 0 0; }
 .card-tint:hover::before { transform: scaleX(1); }
 .eyebrow { font-family: var(--font-heading); letter-spacing: 0.2em; text-transform: uppercase; color: hsl(var(--primary)); align-items: center; gap: 0.75rem; font-size: 0.75rem; font-weight: 700; display: inline-flex; }
 .eyebrow::before { content: ""; background-color: var(--yellow); border-radius: 999px; width: 2.25rem; height: 4px; display: block; }
