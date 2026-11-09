@@ -18,6 +18,16 @@
   var buttons = group.querySelectorAll("button");
   var cards = document.querySelectorAll("#project-grid [data-category]");
   var count = document.getElementById("project-count");
+  var toggle = document.getElementById("filter-toggle");
+  var current = document.getElementById("filter-current");
+  function setOpen(open) {
+    if (!toggle) return;
+    toggle.setAttribute("aria-expanded", String(open));
+    group.classList.toggle("is-open", open);
+  }
+  if (toggle) toggle.addEventListener("click", function () {
+    setOpen(toggle.getAttribute("aria-expanded") !== "true");
+  });
   buttons.forEach(function (b) {
     b.addEventListener("click", function () {
       var filter = b.getAttribute("data-filter");
@@ -29,6 +39,11 @@
         if (match) shown++;
       });
       if (count) count.textContent = shown + (shown === 1 ? " project" : " projects");
+      if (current) current.textContent = b.textContent;
+      if (toggle && toggle.getAttribute("aria-expanded") === "true") {
+        setOpen(false);
+        if (count) count.scrollIntoView({ block: "start" });
+      }
     });
   });
 })();
