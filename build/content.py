@@ -226,14 +226,22 @@ PROJECTS = [
         "category": "Apps & Workflow Design",
         "eyebrow": "Independent app prototype",
         "title": "Pace",
-        "summary": "A concussion-recovery tracker for logging symptoms, energy, and activity throughout the day.",
+        "summary": "A concussion recovery companion that helps people pace their day: matching activity to their energy so they rest before symptoms flare, instead of pushing through and setting recovery back.",
         "header_extra": demo("https://mtbiperfectpace.netlify.app/"),
         "sections": [
-            ("The question", quote("How can someone keep a record of how they feel and what they do throughout the day during concussion recovery?")),
-            ("My approach", p("Quick check-ins during the day and a short reflection at the end of it. Keeping both in one place puts how someone feels right next to what they’ve been doing.")
+            ("The question", quote("How can someone recovering from a concussion tell when to keep going and when to rest, before their symptoms make the decision for them?")),
+            ("Why it matters", p("Pacing is the hardest part of concussion recovery. Doing too much triggers flare-ups that can set healing back by days; resting too much slows it down. The limits are also easy to miss, because reading, screens, conversations, and noisy rooms drain brain energy just like physical activity does. Most people only find their limit after they’ve crossed it.")),
+            ("My approach", p("Paced turns energy into a simple gauge. Across short check-ins from waking up to evening, users rate their energy from 1 to 10, which places them in a green, yellow, or red zone with guidance on what kind of activity fits right now. They also note symptoms and how active they’ve been compared with a typical day, so patterns show up early, while symptoms are still mild.")
+             + cards([
+                 ("Energy zones", "Green, yellow, and red zones translate a 1–10 rating into a clear next step: keep going gently, ease off, or rest."),
+                 ("Recovery trends", "Seven, 14, and 30-day views show energy over time, the most frequent symptoms, and activity against a typical day."),
+                 ("Care-team summary", "A one-page recovery summary prints or saves as a PDF to bring to the next medical appointment."),
+                 ("Recovery guide", "Plain-language cards on pacing, sleep, healthy habits, relaxation, and a gradual return to work or school."),
+             ], "What the app does")
+             + p("The design assumes a tired brain. Eye Comfort Mode warms and dims the screen, the guide shows one card at a time, and a built-in 4-4-6 breathing exercise and soft background sound support rest without adding stimulation.")
              + shots([("pace-signin.webp", "Paced app sign-in screen, with a note that it is a personal reflection tool, not a medical device")],
                      "Paced on mobile. The app frames itself as a personal reflection tool, not a medical device.")),
-            ("Recommendation or status", p("Pace is an independent prototype. Related graduate research looks at adherence and perceived self-regulatory awareness during concussion tracking.")),
+            ("Recommendation or status", p("Paced is an independent prototype and a personal reflection tool, not a medical device; it supports, rather than replaces, guidance from a care team. My graduate research builds on it, looking at what keeps people tracking during recovery and whether tracking sharpens their awareness of their own limits.")),
             ("Related work", related("understanding-adherence-concussion-tracking", "Understanding Adherence to Concussion Tracking")),
         ],
     },
