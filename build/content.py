@@ -225,7 +225,7 @@ PROJECTS = [
         "slug": "pace",
         "category": "Apps & Workflow Design",
         "eyebrow": "Independent app prototype",
-        "title": "Pace",
+        "title": "Paced",
         "summary": "A concussion recovery companion that helps people pace their day: matching activity to their energy so they rest before symptoms flare, instead of pushing through and setting recovery back.",
         "header_extra": demo("https://mtbiperfectpace.netlify.app/"),
         "sections": [
@@ -253,7 +253,7 @@ PROJECTS = [
         "summary": "An evidence review and conceptual model exploring how digital and paper tracking shape adherence and self-regulatory awareness during concussion recovery.",
         "sections": [
             ("My approach", p("The model examines how ease of use and the ongoing effort of tracking might explain why people engage with it so differently.")),
-            ("Related work", related("pace", "Pace")),
+            ("Related work", related("pace", "Paced")),
         ],
     },
     {
