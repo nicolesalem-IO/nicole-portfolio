@@ -350,3 +350,5 @@ section > div > p + p { margin-top: 1rem; }
   #project-filters { display: none; margin-top: .75rem; }
   #project-filters.is-open { display: flex; }
 }
+
+.break-words { overflow-wrap: anywhere; }

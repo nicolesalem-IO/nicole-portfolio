@@ -259,6 +259,39 @@ PROJECTS = [
              '<div class="space-y-4"><p>One manager practice exercise puts two scenarios side by side: an employee who completes skilled work during scheduled hours, and one who stays late but often needs corrections. Managers rate both against shared standards and explain the evidence behind each rating. In calibration meetings, HR then asks managers to back up every rating with specific examples from the review period.</p></div>'
              '<p class="mt-4 text-sm text-foreground/75">Adapted from the manager practice and calibration recommendations on page 5 of the Tech Solutions case analysis.</p>'),
             ("Recommendation or status", p("A follow-up audit would test whether ratings still track overtime among employees with similar responsibilities and core performance.")),
+            ("Related work", related("performance-appraisal-policy", "A Fair Performance Appraisal Policy for a Public Agency")),
+        ],
+    },
+    {
+        "slug": "performance-appraisal-policy",
+        "reports": ["performance-appraisal-policy-1"],
+        "category": "Performance Management",
+        "eyebrow": "Graduate policy design",
+        "title": "A Fair Performance Appraisal Policy for a Public Agency",
+        "summary": "A performance appraisal policy for a public services department that ties ratings to observable work, trains raters against bias, and builds in legal safeguards and a clear path to appeal.",
+        "sections": [
+            ("The question", quote("How can a public agency rate field workers, analysts, and office staff fairly against the same system, meet federal requirements, and still give employees a real voice in their own review?")),
+            ("My approach",
+             p("The policy treats an appraisal as a year-long conversation rather than a single form. Expectations are set in writing at the start of the cycle, revisited every quarter, and grounded in measures that fit each role, so a field worker isn’t judged by the same yardstick as a policy analyst. Employees add their own evidence before the annual review, and every rating comes with an explanation and a route to appeal.")
+             + steps([
+                 ("Plan", "Written performance plans within 30 days of the October 1 cycle start, built with the employee."),
+                 ("Check in", "Quarterly conversations, including a documented midpoint review; any change to assignments or standards is recorded."),
+                 ("Self-assess", "Employees submit a self-assessment and supporting evidence before the annual review."),
+                 ("Review", "An annual rating covering the full period, with development actions, owners, resources, and follow-up dates."),
+                 ("Reconsider", "Written reconsideration requests within 15 days, reviewed by an official outside the original decision."),
+             ], "The appraisal cycle, October 1 through September 30.")),
+            ("What the policy builds in",
+             cards([
+                 ("Measures that fit the job", "Field workers are rated on safe, timely service; analysts on research accuracy and useful recommendations; office staff on accuracy and responsiveness."),
+                 ("Four clear rating levels", "Unacceptable, Fully Successful, Exceeds Fully Successful, and Outstanding, with documented evidence required for the higher ratings."),
+                 ("Raters trained against bias", "Frame-of-reference training with shared examples and practice ratings, plus yearly refreshers on halo, recency, favoritism, and visibility bias."),
+                 ("Legal safeguards", "Built around civil service rules, Title VII, the Rehabilitation Act, wage-and-hour law, and privacy requirements, with HR and counsel reviewing bargaining obligations."),
+             ], "Core features of the appraisal policy.")
+             + callout("Why visibility bias matters here", "Office staff are seen every day; field workers mostly aren’t. Rater refreshers address that gap directly, so the people a supervisor sees most don’t earn the best ratings by default.")),
+            ("Recommendation or status",
+             p("Before rollout, HR would publish how overall ratings are calculated, then track completed plans and rating patterns each cycle, investigating any unexplained differences across groups or assignments.")
+             + pdfs(local_pdf("Performance-Appraisal-Policy.pdf", "Download the full policy (PDF)"))),
+            ("Related work", related("overtime-performance-ratings", "When Overtime Shapes Performance Ratings")),
         ],
     },
     {
