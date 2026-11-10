@@ -48,7 +48,7 @@ def page(path, title, description, main, section):
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(description)}">
 <meta property="og:type" content="website">
-<meta property="og:image" content="{HEADSHOT}">
+<meta property="og:image" content="{SITE_URL}/media/nicole-share.jpg">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

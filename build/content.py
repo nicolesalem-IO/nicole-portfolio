@@ -1,11 +1,10 @@
 from html import escape as e
 
-HEADSHOT = "https://base44.app/api/apps/6aeb6d24517ad9a537d05c86/files/mp/public/6aeb6d24517ad9a537d05c86/021f6a289_nicole-full-length.png"
-ABOUT_IMG = "https://base44.app/api/apps/6aeb6d24517ad9a537d05c86/files/mp/public/6aeb6d24517ad9a537d05c86/e257967b3_head.png"
-RESUME = "https://base44.app/api/apps/6aeb6d24517ad9a537d05c86/files/mp/public/6aeb6d24517ad9a537d05c86/b25e5299c_Nicole-Salem-Resume.pdf"
+HEADSHOT = "/media/nicole-hero.webp"
+ABOUT_IMG = "/media/nicole-about.webp"
+RESUME = "/media/Nicole-Salem-Resume.pdf"
 LINKEDIN = "https://www.linkedin.com/in/nicole-salem-hr/"
-MEDIA = "https://media.base44.com/files/public/user_6aeb68b39348f0600718113a/"
-OYP_BRAND = "https://base44.app/api/apps/6aeb6d24517ad9a537d05c86/files/mp/public/6aeb6d24517ad9a537d05c86/32a64f618_own-your-presence-brand.png"
+OYP_BRAND = "/media/own-your-presence-brand.webp"
 
 CATEGORIES = [
     "Training & Development",
@@ -20,11 +19,6 @@ CATEGORIES = [
 
 
 # ---------- building blocks ----------
-
-def pdf(file, label):
-    return (f'<a href="{MEDIA}{file}" target="_blank" rel="noopener noreferrer" '
-            f'class="btn btn-line text-base">{label}</a>')
-
 
 def pdfs(*links):
     return '<div class="mt-6 flex flex-wrap gap-3">' + "".join(links) + "</div>"
