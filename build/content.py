@@ -236,18 +236,7 @@ PROJECTS = [
              + shots([("pace-signin.webp", "Paced app sign-in screen, with a note that it is a personal reflection tool, not a medical device")],
                      "Paced on mobile. The app frames itself as a personal reflection tool, not a medical device.")),
             ("Recommendation or status", p("Paced is an independent prototype and a personal reflection tool, not a medical device; it supports, rather than replaces, guidance from a care team. My graduate research builds on it, looking at what keeps people tracking during recovery and whether tracking sharpens their awareness of their own limits.")),
-            ("Related work", related("understanding-adherence-concussion-tracking", "Understanding Adherence to Concussion Tracking")),
-        ],
-    },
-    {
-        "slug": "understanding-adherence-concussion-tracking",
-        "category": "Applied Research",
-        "eyebrow": "Graduate research in progress",
-        "title": "Understanding Adherence to Concussion Tracking",
-        "summary": "An evidence review and conceptual model exploring how digital and paper tracking shape adherence and self-regulatory awareness during concussion recovery.",
-        "sections": [
-            ("My approach", p("The model examines how ease of use and the ongoing effort of tracking might explain why people engage with it so differently.")),
-            ("Related work", related("pace", "Paced")),
+            ("Related work", related("concussion-tracking-thesis", "Digital and Paper-Based Concussion Tracking")),
         ],
     },
     {
@@ -364,6 +353,8 @@ PROJECTS = [
         "title": "Digital and Paper-Based Concussion Tracking",
         "summary": "My master’s thesis proposal: a critical evidence review and conceptual model of how tracking systems relate to adherence and self-regulatory awareness during concussion recovery.",
         "reports": ["concussion-tracking-thesis-1"],
-        "sections": [],
+        "sections": [
+            ("Related work", related("pace", "Paced")),
+        ],
     },
 ]
