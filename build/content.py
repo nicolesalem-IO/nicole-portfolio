@@ -308,9 +308,10 @@ PROJECTS = [
         "category": "Leadership & Organizational Development",
         "eyebrow": "Graduate program proposal",
         "title": "Designing a Global Employee Wellness Program",
-        "summary": "A wellness proposal and needs-assessment survey for a team spread across locations and time zones.",
+        "summary": "A legally sound wellness policy and needs-assessment survey for a hybrid team spread across locations and time zones.",
+        "reports": ["global-employee-wellness-program-1", "global-employee-wellness-program-2"],
         "sections": [
-            ("My approach", p("A 60-day pilot would test how scheduling practices, focus time, and wellness supports work for teams with different coverage needs. The evaluation pairs employee feedback with indicators such as meeting load and use of wellness resources.")),
+            ("My approach", p("The policy gives every employee the same access to wellness support, whether they work near the office or from home: gym reimbursement handled through the insurer, optional lunchtime activities on site, and a monthly stipend for remote staff. Participation is voluntary, nothing is tracked, and no health information reaches the employer, which keeps the program within ADA, HIPAA, GINA, and EEOC requirements. A short needs-assessment survey then asks employees what’s working, what gets in the way, and what support they’d want next.")),
         ],
     },
     {
